@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# VC folders and files
+.vs
+Debug
+*.VC.db
+
+*.opendb
+*.filters
