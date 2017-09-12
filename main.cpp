@@ -1,5 +1,10 @@
 #include <stdio.h>
 
-void main() {
+void greetWorld()
+{
 	printf_s("Hello, world!\n");
+}
+
+void main() {
+	greetWorld();
 }
