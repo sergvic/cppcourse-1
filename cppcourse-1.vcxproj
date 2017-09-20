@@ -143,9 +143,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MisterCat.cpp" />
     <ClCompile Include="Pizza.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MisterCat.h" />
     <ClInclude Include="Pizza.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "MisterCat.h"
 
 void greetWorld()
 {
@@ -6,5 +7,8 @@ void greetWorld()
 }
 
 void main() {
-	greetWorld();
+	auto cafe = new MisterCat();
+	cafe->presentMenu();
+	auto choosenDish = cafe->takeOrder();
+
 }
