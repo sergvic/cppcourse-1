@@ -6,6 +6,9 @@ using namespace std;
 class Pizza
 {
 public:
+
+	Pizza(string name);
+
 	string name;
 	float price;
 	float primeCost;

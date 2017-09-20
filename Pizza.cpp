@@ -1,5 +1,10 @@
 #include "Pizza.h"
 
+Pizza::Pizza(string name)
+{
+	this->name = name;
+}
+
 Pizza::Pizza()
 {
 	name = "";

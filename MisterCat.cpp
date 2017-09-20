@@ -1,24 +1,26 @@
 #include "MisterCat.h"
 
+#include "Pizza.h"
+
 #include <iostream>;
 #include <thread>
 
 void MisterCat::presentMenu()
 {
 	cout << "\t\tWelcome to MisterCat!" << endl << endl << "\t\t\tMenu" << endl;
-	cout << "1 - pizza" << endl << endl << endl;
+	cout << "1 - pizza" << endl << "2 - soup" << endl << endl;
 }
 
-void orderProcessingThread(int orderId)
+void orderProcessingThread(Pizza *pizza)
 {
-	cout << "Start processing of order "<<orderId<<"..."<<endl;
+	cout << "----------------------------------" << "Started cooking "<<pizza->name<<endl<< "----------------------------------"<<endl;
 	this_thread::sleep_for(3s);
-	cout << "order " << orderId << "processed." << endl;
+	cout <<"----------------------------------"<<endl << pizza->name << " cooked!" << endl<< "----------------------------------"<<endl;
 }
 
 void MisterCat::processOrder(int orderId)
 {
-	orderThreads->push_back(thread(orderProcessingThread, orderId));
+	orderThreads->push_back(thread([this]() {orderProcessingThread((*this->orders)[0]);}));
 }
 
 int MisterCat::takeOrder()
@@ -28,7 +30,7 @@ int MisterCat::takeOrder()
 	cin >> choosenDish;
 
 	if (choosenDish > 0) {
-		orders->push_back(choosenDish);
+		orders->push_back(choosenDish == 1 ? new Pizza("quattro") : nullptr);
 		processOrder(orders->size());
 		return orders->size();
 	}
@@ -41,7 +43,7 @@ int MisterCat::takeOrder()
 
 MisterCat::MisterCat()
 {
-	orders = new vector<int>();
+	orders = new vector<Pizza *>();
 	orderThreads = new vector<thread>();
 }
 

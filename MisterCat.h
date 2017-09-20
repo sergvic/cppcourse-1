@@ -6,6 +6,8 @@
 #include <thread>
 using namespace std;
 
+#include "Pizza.h"
+
 class MisterCat
 {
 private:
@@ -14,7 +16,7 @@ private:
 public:
 	float income;
 
-	vector<int> *orders;
+	vector<Pizza *> *orders;
 
 	void presentMenu();
 	int takeOrder();
